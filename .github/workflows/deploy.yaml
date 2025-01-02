@@ -19,7 +19,7 @@ jobs:
           node-version: v20.3.0
 
       - name: Install Dependencis
-        run: npm install
+        run: yarn install --frozen-lockfile
 
       - name: Build App
         run: echo "Building the app..."
@@ -37,7 +37,7 @@ jobs:
           node-version: v20.3.0
 
       - name: Install Dependencis
-        run: npm install
+        run: yarn install --frozen-lockfile
 
       # - name: Build App
       #   run: npm build
@@ -75,4 +75,4 @@ jobs:
           ssh $EC2_USER@$EC2_HOST "export PATH=$PATH:/run/user/1000/fnm_multishells/112424_1734077954807/bin && pm2 delete nodejs-app || true"
 
           # Start the application with PM2
-          ssh $EC2_USER@$EC2_HOST "export PATH=$PATH:/run/user/1000/fnm_multishells/112424_1734077954807/bin && cd ~/app && pm2 start dist/server.js --name nodejs-app"
+          ssh $EC2_USER@$EC2_HOST "export PATH=$PATH:/run/user/1000/fnm_multishells/112424_1734077954807/bin && cd ~/app && pm2 start index.js --name nodejs-app"
