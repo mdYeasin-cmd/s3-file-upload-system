@@ -72,7 +72,7 @@ jobs:
 
 
           # Install production dependencies on EC2
-          ssh $EC2_USER@$EC2_HOST "cd ~/app && export PATH=$PATH:/run/user/1000/fnm_multishells/112424_1734077954807/bin && yarn install --frozen-lockfile"
+          ssh $EC2_USER@$EC2_HOST "cd ~/app && yarn install --frozen-lockfile"
 
           # Stop existing PM2 process if it exists
           ssh $EC2_USER@$EC2_HOST "export PATH=$PATH:/run/user/1000/fnm_multishells/112424_1734077954807/bin && pm2 delete nodejs-app || true"
